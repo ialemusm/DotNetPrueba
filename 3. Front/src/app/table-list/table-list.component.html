@@ -1,0 +1,57 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Mis Productos</h4>
+                      <p class="card-category">Productos en Stock</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      ID
+                                  </th>
+                                  <th>
+                                      Producto
+                                  </th>
+                                  <th>
+                                      Estado
+                                  </th>
+                              </thead>
+                              <tbody>
+                                  <ng-container *ngFor="let prod of dataProduct">
+                                    <tr>
+                                        <td>
+                                            {{prod.prodId}}
+                                        </td>
+                                        <td>
+                                            {{prod.prodName}}
+                                        </td>
+                                        <td>
+                                            {{prod.prodCondition}}
+                                        </td>
+                                        <td>
+                                            <button mat-raised-button class="btn btn-just-icon btn-link" (click)='this.goToProduct(prod.prodId)' routerLink='/form/{{prod.prodId}}' [state]="{id: prod.prodId}">
+                                                <i class="material-icons">more_vert</i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button mat-raised-button class="btn btn-success" (click)='this.sellProduct(prod)'>Vender</button>
+                                        </td>
+                                    </tr>
+                                  </ng-container>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+              <button mat-raised-button class="btn" routerLink='/create-form'>
+                Añadir Producto
+            </button>
+          </div>
+      </div>
+  </div>
+</div>
